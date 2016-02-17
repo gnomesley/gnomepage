@@ -12,6 +12,20 @@ html, body
     background: #172631;
 }
 
+#player-container
+{
+    display: block;
+    width: 100%;
+    height: 360px;
+    background: black;
+}
+
+#player
+{
+    display: block;
+    margin: auto;
+}
+
 #song-table
 {
     position: absolute;
@@ -29,4 +43,9 @@ html, body
     padding: 15px;
     overflow: hidden;
     border: 1px solid #3C5365;
+}
+
+#song-table tbody
+{
+    cursor: pointer;
 }

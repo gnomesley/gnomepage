@@ -1,8 +1,24 @@
-var list = document.getElementById("song-list");
 var lastResponse = "";
+var list, playerContainer, player;
 
-update();
-setInterval(update, 1000);
+window.addEventListener("load", function ()
+{
+    list = document.getElementById("song-list");
+    playerContainer = document.getElementById("player-container");
+    update();
+    setInterval(update, 1000);
+});
+
+window.addEventListener("keydown", function (event)
+{
+    if (event.keyCode === 32 && player)
+    {
+        if (player.getPlayerState() === 1)
+            player.pauseVideo();
+        else
+            player.playVideo();
+    }
+});
 
 function update()
 {
@@ -18,6 +34,10 @@ function update()
                 var request = requested[i];
                 var tr = document.createElement("tr");
                 tr.innerHTML = "<td>" + request.rid + "</td><td>" + request.title + "</td><td>" + formatLength(request.length) + "</td><td>" + request.user + "</td>";
+                tr.addEventListener("click", function (id)
+                {
+                    player.loadVideoById(id);
+                }.bind(null, request.id));
                 list.appendChild(tr);
             }
         }
@@ -43,4 +63,21 @@ function formatLength(length)
     var minutes = Math.floor(length / 60);
     var seconds = ("0" + length % 60).slice(-2);
     return minutes + ":" + seconds;
+}
+
+function onYouTubeIframeAPIReady()
+{
+    console.log("yt");
+    var options = {
+        width: 640,
+        height: 360,
+        videoId: "",
+        events: {},
+        playerVars: {
+            showinfo: 0,
+            rel: 0,
+            controls: 1
+        }
+    };
+    player = new YT.Player("player", options);
 }
