@@ -1,0 +1,23 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+}
+
+#list
+{
+    font-family: sans-serif;
+}
+
+#list div
+{
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
