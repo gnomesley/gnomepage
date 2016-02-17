@@ -1,4 +1,5 @@
-var list = document.getElementById("list");
+var list = document.getElementById("song-list");
+var lastResponse = "";
 
 update();
 setInterval(update, 1000);
@@ -7,14 +8,18 @@ function update()
 {
     get("https://jsonblob.com/api/jsonBlob/56c3e68ee4b01190df4f7138", function (body)
     {
-        list.innerHTML = "";
-        var requested = JSON.parse(body);
-        for (var i = 0; i < requested.length; i++)
+        if (body !== lastResponse)
         {
-            var request = requested[i];
-            var div = document.createElement("div");
-            div.innerHTML = '<a target="_blank" href="https://www.youtube.com/watch?v=' + request.id + '">' + request.title + '</a> - ' + request.user + ' [' + request.rid + ']';
-            list.appendChild(div);
+            lastResponse = body;
+            list.innerHTML = "";
+            var requested = JSON.parse(body);
+            for (var i = 0; i < requested.length; i++)
+            {
+                var request = requested[i];
+                var tr = document.createElement("tr");
+                tr.innerHTML = "<td>" + request.rid + "</td><td>" + request.title + "</td><td>" + formatLength(request.length) + "</td><td>" + request.user + "</td>";
+                list.appendChild(tr);
+            }
         }
     })
 }
@@ -31,4 +36,11 @@ function get(url, cb)
     };
     req.open("GET", url);
     req.send();
+}
+
+function formatLength(length)
+{
+    var minutes = Math.floor(length / 60);
+    var seconds = ("0" + length % 60).slice(-2);
+    return minutes + ":" + seconds;
 }

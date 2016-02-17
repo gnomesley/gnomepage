@@ -9,15 +9,24 @@ html, body
 {
     width: 100%;
     height: 100%;
+    background: #172631;
 }
 
-#list
+#song-table
 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
     font-family: sans-serif;
+    table-layout: fixed;
+    border-collapse: collapse;
+    color: #dddddd;
+    background: #0F1D29;
 }
 
-#list div
+#song-table *
 {
     padding: 15px;
-    border-bottom: 1px solid black;
+    overflow: hidden;
+    border: 1px solid #3C5365;
 }
