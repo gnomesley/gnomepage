@@ -1,7 +1,7 @@
 var lastResponse = "";
 var list = document.getElementById("song-list");
 var playerContainer = document.getElementById("player-container");
-var player;
+var player = null;
 
 alert("yep");
 update();
