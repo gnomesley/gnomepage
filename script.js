@@ -37,7 +37,7 @@ function update()
                     else initPlayer(id);
 
                 }.bind(null, request.id);
-                tr.addEventListener("click", listener);
+                //tr.addEventListener("click", listener);
                 tr.addEventListener("touchstart", listener);
                 list.appendChild(tr);
             }
