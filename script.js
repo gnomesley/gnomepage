@@ -1,13 +1,10 @@
 var lastResponse = "";
-var list, playerContainer, player;
+var list = document.getElementById("song-list");
+var playerContainer = document.getElementById("player-container");
+var player;
 
-window.addEventListener("load", function ()
-{
-    list = document.getElementById("song-list");
-    playerContainer = document.getElementById("player-container");
-    update();
-    setInterval(update, 1000);
-});
+update();
+setInterval(update, 1000);
 
 window.addEventListener("keydown", function (event)
 {
@@ -67,7 +64,6 @@ function formatLength(length)
 
 function onYouTubeIframeAPIReady()
 {
-    console.log("yt");
     var options = {
         width: 640,
         height: 360,
@@ -80,4 +76,5 @@ function onYouTubeIframeAPIReady()
         }
     };
     player = new YT.Player("player", options);
+    playerContainer.style.height = "360px";
 }
