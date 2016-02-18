@@ -37,8 +37,16 @@ function update()
                     return function ()
                     {
                         alert("yipee");
-                        if (player) player.loadVideoById(id);
-                        else initPlayer(id);
+                        if (player)
+                        {
+                            alert("player");
+                            player.loadVideoById(id);
+                        }
+                        else
+                        {
+                            alert("no player");
+                            initPlayer(id);
+                        }
                     }
                 })(request.id);
                 tr.addEventListener("click", listener);
