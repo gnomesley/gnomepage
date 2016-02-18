@@ -33,7 +33,9 @@ function update()
                 tr.innerHTML = "<td>" + request.rid + "</td><td>" + request.title + "</td><td>" + formatLength(request.length) + "</td><td>" + request.user + "</td>";
                 tr.addEventListener("click", function (id)
                 {
-                    player.loadVideoById(id);
+                    if (player) player.loadVideoById(id);
+                    else initPlayer(id);
+
                 }.bind(null, request.id));
                 list.appendChild(tr);
             }
@@ -64,17 +66,22 @@ function formatLength(length)
 
 function onYouTubeIframeAPIReady()
 {
+    playerContainer.style.height = "360px";
+}
+
+function initPlayer(id)
+{
     var options = {
         width: 640,
         height: 360,
-        videoId: "",
+        videoId: id,
         events: {},
         playerVars: {
+            autoplay: 1,
             showinfo: 0,
             rel: 0,
             controls: 1
         }
     };
     player = new YT.Player("player", options);
-    playerContainer.style.height = "360px";
 }

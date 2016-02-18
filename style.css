@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 html, body
@@ -25,7 +26,13 @@ html, body
 #player
 {
     display: block;
+    width: 640px;
+    height: 360px;
+    line-height: 360px;
+    text-align: center;
+    vertical-align: middle;
     margin: auto;
+    color: #dddddd;
 }
 
 #song-table
@@ -33,7 +40,6 @@ html, body
     position: absolute;
     width: 100%;
     text-align: center;
-    font-family: sans-serif;
     table-layout: fixed;
     border-collapse: collapse;
     color: #dddddd;
