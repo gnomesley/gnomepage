@@ -31,12 +31,14 @@ function update()
                 var request = requested[i];
                 var tr = document.createElement("tr");
                 tr.innerHTML = "<td>" + request.rid + "</td><td>" + request.title + "</td><td>" + formatLength(request.length) + "</td><td>" + request.user + "</td>";
-                tr.addEventListener("click", function (id)
+                var listener = function (id)
                 {
                     if (player) player.loadVideoById(id);
                     else initPlayer(id);
 
-                }.bind(null, request.id));
+                }.bind(null, request.id);
+                tr.addEventListener("click", listener);
+                tr.addEventListener("touchstart", listener);
                 list.appendChild(tr);
             }
         }
