@@ -35,18 +35,11 @@ function update()
                 {
                     return function ()
                     {
-                        if (player)
-                        {
-                            player.loadVideoById(id);
-                        }
-                        else
-                        {
-                            initPlayer(id);
-                        }
+                        if (player) player.loadVideoById(id);
+                        else initPlayer(id);
                     }
                 })(request.id);
                 tr.addEventListener("click", listener);
-                //tr.addEventListener("touchstart", listener);
                 list.appendChild(tr);
             }
         }
