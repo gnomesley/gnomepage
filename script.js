@@ -3,6 +3,7 @@ var list = document.getElementById("song-list");
 var playerContainer = document.getElementById("player-container");
 var player;
 
+alert("yep");
 update();
 setInterval(update, 1000);
 
@@ -35,6 +36,7 @@ function update()
                 {
                     return function ()
                     {
+                        alert("yipee");
                         if (player) player.loadVideoById(id);
                         else initPlayer(id);
                     }
