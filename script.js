@@ -3,7 +3,6 @@ var list = document.getElementById("song-list");
 var playerContainer = document.getElementById("player-container");
 var player = null;
 
-alert("yep");
 update();
 setInterval(update, 1000);
 
@@ -36,21 +35,18 @@ function update()
                 {
                     return function ()
                     {
-                        alert("yipee");
                         if (player)
                         {
-                            alert("player");
                             player.loadVideoById(id);
                         }
                         else
                         {
-                            alert("no player");
                             initPlayer(id);
                         }
                     }
                 })(request.id);
                 tr.addEventListener("click", listener);
-                tr.addEventListener("touchstart", listener);
+                //tr.addEventListener("touchstart", listener);
                 list.appendChild(tr);
             }
         }
