@@ -1,0 +1,33 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+    background: #172631;
+}
+
+#top-table
+{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    table-layout: fixed;
+    border-collapse: collapse;
+    cursor: default;
+    color: #dddddd;
+    background: #0F1D29;
+}
+
+#top-table *
+{
+    padding: 15px;
+    overflow: hidden;
+    border: 1px solid #3C5365;
+}
