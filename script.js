@@ -19,7 +19,7 @@ window.addEventListener("keydown", function (event)
 
 function update()
 {
-    get("https://jsonblob.com/api/jsonBlob/56c3e68ee4b01190df4f7138", function (body)
+    get("https://gnome.firebaseio.com/requests.json", function (body)
     {
         if (body !== lastResponse)
         {
