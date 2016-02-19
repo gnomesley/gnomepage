@@ -4,7 +4,7 @@ var playerContainer = document.getElementById("player-container");
 var player = null;
 
 update();
-setInterval(update, 1000);
+setInterval(update, 3000);
 
 window.addEventListener("keydown", function (event)
 {
