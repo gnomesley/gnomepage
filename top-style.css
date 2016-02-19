@@ -13,10 +13,10 @@ html, body
     background: #172631;
 }
 
-#top-table
+table
 {
     position: absolute;
-    width: 100%;
+    width: 50%;
     text-align: center;
     table-layout: fixed;
     border-collapse: collapse;
@@ -25,9 +25,19 @@ html, body
     background: #0F1D29;
 }
 
-#top-table *
+#point-table
 {
-    padding: 15px;
+    right: 0;
+}
+
+table *
+{
+    padding: 15px 0;
     overflow: hidden;
     border: 1px solid #3C5365;
+}
+
+table caption
+{
+    border: none;
 }

@@ -1,5 +1,6 @@
 var lastResponse = "";
-var list = document.getElementById("top-list");
+var timeList = document.getElementById("time-list");
+var pointList = document.getElementById("point-list");
 
 update();
 setInterval(update, 60000);
@@ -11,14 +12,21 @@ function update()
         if (body !== lastResponse)
         {
             lastResponse = body;
-            list.innerHTML = "";
+            timeList.innerHTML = "";
+            pointList.innerHTML = "";
+            var i, tr;
             var top = JSON.parse(body);
-            for (var i = 0; i < top.time.length; i++)
+            for (i = 0; i < top.time.length; i++)
             {
-                var user = top.time[i];
-                var tr = document.createElement("tr");
-                tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + user.user + "</td><td>" + formatTime(user.time) + "</td>";
-                list.appendChild(tr);
+                tr = document.createElement("tr");
+                tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + top.time[i].user + "</td><td>" + formatTime(top.time[i].time) + "</td>";
+                timeList.appendChild(tr);
+            }
+            for (i = 0; i < top.time.length; i++)
+            {
+                tr = document.createElement("tr");
+                tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + top.points[i].user + "</td><td>" + top.points[i].points + "</td>";
+                pointList.appendChild(tr);
             }
         }
     })
